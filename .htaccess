@@ -10,11 +10,11 @@ RewriteBase /goaccess
 RewriteRule ^index\.php$ - [L]
 
 # data.json is off limits
-RewriteRule ^. index.php [L]
+RewriteRule ^\. index.php [L]
 
 #RewriteCond %{REQUEST_FILENAME} !-f
 #RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /goaccess/index.php [L]
+RewriteRule ^ /goaccess/index.php [L]
 
 </IfModule>
 

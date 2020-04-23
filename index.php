@@ -164,6 +164,7 @@ function getLogFiles() {
 			$logname = $m[1];
 		} else {
 			echo "unknown logname: '$logname' from '$v'\n";
+			continue;
 		}
 		$logs[$logname] = array(
 			'name' => $logname,
@@ -454,6 +455,10 @@ function getHtmlForm() {
 			$cls = $v['has_data'] ? 'hasData' : 'noData';
 			$optionsList .= "<option value='{$k}' class='{$cls}'{$selected}>{$k}</option>";
 		}
+	}
+	// verify selected logname is valid
+	if (empty($options[$_REQUEST['logname']])) {
+		$_REQUEST['logname'] = 'live';
 	}
 	// build refresh options
 	$refreshOptionsList = '';
